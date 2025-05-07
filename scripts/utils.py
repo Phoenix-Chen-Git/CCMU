@@ -68,7 +68,7 @@ def extract_and_save_tensor(csv_path, bigwig_dir, output_path):
 
     epi = np.zeros((N, len(bw_files), L), dtype=np.float32)
     for i, (_, row) in enumerate(df.iterrows()):
-        chrom, start, end, strand = row['chr'], int(row['start']), int(row['end']), row['strand']
+        chrom, start, end, strand = row['Chromosome'], int(row['start']), int(row['end']), row['Strand']
         if (end - start + 1) != L:
             raise ValueError(f"Region length mismatch at row {i+2}, expected {L}.")
 
