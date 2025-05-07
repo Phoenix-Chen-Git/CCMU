@@ -1,8 +1,8 @@
-#download epi_data
-mkdir epi_data/
+#download epidata
+mkdir epidata/
 wget https://publicphoenixchen.s3.us-east-1.amazonaws.com/epi_genetic/selected_tracks.tar.gz
 tar -xzf selected_tracks.tar.gz
-mv *.bigWig epi_data/
+mv *.bigWig epidata/
 #download weight
 mkdir weights/
 wget https://publicphoenixchen.s3.us-east-1.amazonaws.com/weights/best_model_1th.pth
