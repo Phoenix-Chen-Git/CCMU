@@ -24,7 +24,7 @@ def process_crispr_csv(filepath):
     df = pd.read_csv(filepath, sep="\t")
 
     # Step 2: Combine Sequence and PAM
-    df["Full_sequence"] = df["Sequence"].str[:-3] + df["PAM"]
+    df["Full_sequence"] = df["Sequence"] + df["PAM"]
 
     # Step 3: Get the first On-target = TRUE sequence
     on_target_seq = df[df["On-target"] == True]["Full_sequence"].values[0]
