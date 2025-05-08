@@ -9,6 +9,7 @@ from sklearn.metrics import (
 )
 import matplotlib.pyplot as plt
 import seaborn as sns
+import pandas as pd
 # ——— Define model architecture ———
 class TransformerClassifier(nn.Module):
     def __init__(self, input_dim=18, seq_length=23, hidden_dim=256, num_layers=3, nhead=8, dropout=0.1):
@@ -84,4 +85,4 @@ def execute():
     # ——— Ensemble by averaging ———
     ensemble_scores = all_scores.mean(axis=0)
     y_pred = (ensemble_scores >= 0.5).astype(int)
-    y_pred.to_csv('../temp/results.csv',index=False)
+    pd.DataFrame(y_pred).to_csv('../temp/results.csv', index=False)
