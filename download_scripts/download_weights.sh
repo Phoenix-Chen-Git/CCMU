@@ -1,3 +1,4 @@
+cd ../
 mkdir weights
 cd weights
 wget https://zenodo.org/records/15350235/files/best_model_1th.pth?download=1
