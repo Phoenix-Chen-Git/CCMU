@@ -1,0 +1,1 @@
+This project evaluates a transformer-based classifier for CRISPR on/off-target prediction. It uses both one-hot encoded sequences and epigenomic tracks. The repository includes scripts to download the example dataset and five sets of pre-trained weights, and provides inference utilities for combined, sequence-only and epigenetic-only configurations.
