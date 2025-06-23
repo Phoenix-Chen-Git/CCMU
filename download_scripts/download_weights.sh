@@ -1,0 +1,17 @@
+mkdir weights
+cd weights
+wget https://zenodo.org/records/15350235/files/best_model_1th.pth?download=1
+wget https://zenodo.org/records/15350235/files/best_model_2th.pth?download=1
+wget https://zenodo.org/records/15350235/files/best_model_3th.pth?download=1
+wget https://zenodo.org/records/15350235/files/best_model_4th.pth?download=1
+wget https://zenodo.org/records/15350235/files/best_model_5th.pth?download=1
+wget https://zenodo.org/records/15350235/files/best_model_epi_1th.pth?download=1
+wget https://zenodo.org/records/15350235/files/best_model_epi_2th.pth?download=1
+wget https://zenodo.org/records/15350235/files/best_model_epi_3th.pth?download=1
+wget https://zenodo.org/records/15350235/files/best_model_epi_4th.pth?download=1
+wget https://zenodo.org/records/15350235/files/best_model_epi_5th.pth?download=1
+wget https://zenodo.org/records/15350235/files/best_seq_only_model_1th.pth?download=1
+wget https://zenodo.org/records/15350235/files/best_seq_only_model_2th.pth?download=1
+wget https://zenodo.org/records/15350235/files/best_seq_only_model_3th.pth?download=1
+wget https://zenodo.org/records/15350235/files/best_seq_only_model_4th.pth?download=1
+wget https://zenodo.org/records/15350235/files/best_seq_only_model_5th.pth?download=1
