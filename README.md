@@ -2,11 +2,6 @@
 ![Cover](docs/Cover.png)
 CCMU (Combined Multi-feature Unified model) is a Transformer-based classifier for predicting CRISPR-Cas9 off-target activity. The model integrates nucleotide sequence context with ten epigenetic tracks and was trained using five-fold cross-validation. This repository provides scripts to download the example dataset and run inference using the released weights.
 ### data source
-## data source
-# data source
-### **data source**
-## **data source**
-# **data source**
 | Epigenetic Feature | Source Database | Sample ID      | bigWig File Size |
 |--------------------|-----------------|---------------|------------------|
 | ATAC-seq           | ENCODE          | ENCFF615UQB   | 248 MB           |
@@ -19,10 +14,7 @@ CCMU (Combined Multi-feature Unified model) is a Transformer-based classifier fo
 | H3K36me3 ChIP-seq  | GEO             | GSM2643621    | 450 MB           |
 | H3K27me3 ChIP-seq  | GEO             | GSM3907592    | 162 MB           |
 | RRBS               | ENCODE          | ENCSR794HFF   | 28 MB            |
-
-
 ### main hyperparameters
-
 | Hyperparameter Name         | Value               | Description                                    |
 |----------------------------|---------------------|------------------------------------------------|
 | Input Channels              | 18                  | 10 epigenetic features + 8 sequence features   |
@@ -37,9 +29,8 @@ CCMU (Combined Multi-feature Unified model) is a Transformer-based classifier fo
 | Positive:Negative Weight Ratio | 2:1              | Positive sample weight is twice negative sample|
 | Training Epochs             | 300                 | Number of cross-validation training epochs     |
 | Samples per Epoch           | 800 (400+400)       | 400 positive and 400 negative samples per epoch|
-
-
-### model architecture
+### Model architecture
 <p align="center">
   <img src="docs/Model_architecture.png" alt="model architecture"/>
 </p>
+### Benchmark on MIT and CFD Datasets
