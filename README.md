@@ -9,3 +9,6 @@ main hyperparameters
 
 model architecture
 ![model architecture](docs/Model_architecture.png)
+<p align="center">
+  <img src="docs/Model_architecture.png" alt="model architecture"/>
+</p>
