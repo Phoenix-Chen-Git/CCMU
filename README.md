@@ -48,21 +48,21 @@ CCMU (Combined Multi-feature Unified model) is a Transformer-based classifier fo
   <tr>
     <td align="center">
       <img src="docs/MIT/FNR_FPR_vs_Cutoff.png" width="350"/><br>
-      <b>Figure 1. FNR and FPR vs cutoff</b>
+      <b>a. FNR and FPR vs cutoff</b>
     </td>
     <td align="center">
       <img src="docs/MIT/ROC_Curve.png" width="350"/><br>
-      <b>Figure 2. ROC Curve</b>
+      <b>b. ROC Curve</b>
     </td>
   </tr>
   <tr>
     <td align="center">
       <img src="docs/MIT/PR_Curve.png" width="350"/><br>
-      <b>Figure 3. PR Curve</b>
+      <b>c. PR Curve</b>
     </td>
     <td align="center">
       <img src="docs/MIT/Confusion_matrix.png" width="350"/><br>
-      <b>Figure 4. Confusion matrix</b>
+      <b>d. Confusion matrix</b>
     </td>
   </tr>
 </table>
