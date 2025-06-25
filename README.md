@@ -6,8 +6,6 @@ data source
 
 ### main hyperparameters
 
-**main hyperparameters**
-
 | Hyperparameter Name         | Value               | Description                                    |
 |----------------------------|---------------------|------------------------------------------------|
 | Input Channels              | 18                  | 10 epigenetic features + 8 sequence features   |
@@ -24,11 +22,7 @@ data source
 | Samples per Epoch           | 800 (400+400)       | 400 positive and 400 negative samples per epoch|
 
 
-model architecture
+### model architecture
 <p align="center">
   <img src="docs/Model_architecture.png" alt="model architecture"/>
 </p>
-
-### Table 1. Epigenetic feature data sources and file information
-## Table of Contents
-- [Data Table](#table-1-epigenetic-feature-data-sources-and-file-information)
