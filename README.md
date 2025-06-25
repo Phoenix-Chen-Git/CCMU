@@ -77,6 +77,28 @@ CCMU (Combined Multi-feature Unified model) is a Transformer-based classifier fo
 | 3    | FNR=0.1       | 0.886  | 0.794   | 0.279  |
 | 4    | FNR=0.1       | 0.590  | 0.832   | 0.242  |
 | 5    | FNR=0.1       | 0.589  | 0.826   | 0.270  |
+<table align="center">
+  <tr>
+    <td align="center">
+      <img src="docs/CFD/FNR_FPR_vs_Cutoff.png" width="350"/><br>
+      <b>a. FNR and FPR vs cutoff</b>
+    </td>
+    <td align="center">
+      <img src="docs/CFD/ROC_Curve.png" width="350"/><br>
+      <b>b. ROC Curve</b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="docs/CFD/PR_Curve.png" width="350"/><br>
+      <b>c. PR Curve</b>
+    </td>
+    <td align="center">
+      <img src="docs/MIT/Confusion_matrix.png" width="350"/><br>
+      <b>d. Confusion matrix</b>
+    </td>
+  </tr>
+</table>
 ### Table 5. Model five-fold cross-validation metrics
 | Fold | FNR Constraint |  FPR    | ROC-AUC | PR-AUC |
 |------|---------------|---------|---------|--------|
