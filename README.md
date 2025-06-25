@@ -33,4 +33,37 @@ CCMU (Combined Multi-feature Unified model) is a Transformer-based classifier fo
 <p align="center">
   <img src="docs/Model_architecture.png" alt="model architecture"/>
 </p>
-### Benchmark on MIT and CFD Datasets
+
+## Benchmark on MIT and CFD Datasets
+### Table 3. MIT algorithm metrics
+| Fold | FNR Constraint | FPR    | ROC-AUC | PR-AUC |
+|------|---------------|--------|---------|--------|
+| 1    | FNR=0.1       | 1.0000 | 0.681   | 0.110  |
+| 2    | FNR=0.1       | 0.5120 | 0.720   | 0.101  |
+| 3    | FNR=0.1       | 1.0000 | 0.672   | 0.100  |
+| 4    | FNR=0.1       | 1.0000 | 0.707   | 0.128  |
+| 5    | FNR=0.1       | 0.5150 | 0.704   | 0.106  |
+### Table 4. CFD algorithm metrics
+| Fold | FNR Constraint | FPR    | ROC-AUC | PR-AUC |
+|------|---------------|--------|---------|--------|
+| 1    | FNR=0.1       | 0.720  | 0.825   | 0.230  |
+| 2    | FNR=0.1       | 0.576  | 0.801   | 0.203  |
+| 3    | FNR=0.1       | 0.886  | 0.794   | 0.279  |
+| 4    | FNR=0.1       | 0.590  | 0.832   | 0.242  |
+| 5    | FNR=0.1       | 0.589  | 0.826   | 0.270  |
+### Table 5. Model five-fold cross-validation metrics
+| Fold | FNR Constraint |  FPR    | ROC-AUC | PR-AUC |
+|------|---------------|---------|---------|--------|
+| 1    | FNR < 0.1     | 0.0694  | 0.97    | 0.14   |
+| 2    | FNR < 0.1     | 0.0789  | 0.97    | 0.11   |
+| 3    | FNR < 0.1     | 0.0553  | 0.97    | 0.11   |
+| 4    | FNR < 0.1     | 0.0742  | 0.96    | 0.09   |
+| 5    | FNR < 0.1     | 0.1446  | 0.97    | 0.13   |
+### Table 6. Epigenetic-only model metrics
+| Fold | FNR Constraint |  FPR    | ROC-AUC | PR-AUC |
+|------|---------------|---------|---------|--------|
+| 1    | FNR < 0.1     | 0.5709  | 0.83    | 0.02   |
+| 2    | FNR < 0.1     | 0.5923  | 0.86    | 0.03   |
+| 3    | FNR < 0.1     | 0.3681  | 0.85    | 0.02   |
+| 4    | FNR < 0.1     | 0.3501  | 0.86    | 0.03   |
+| 5    | FNR < 0.1     | 0.5748  | 0.83    | 0.03   |
