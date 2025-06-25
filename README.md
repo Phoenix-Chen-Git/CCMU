@@ -1,8 +1,20 @@
 # CCMU: CRISPR-Cas9 Off‑target Prediction
 ![Cover](docs/Cover.png)
 CCMU (Combined Multi-feature Unified model) is a Transformer-based classifier for predicting CRISPR-Cas9 off-target activity. The model integrates nucleotide sequence context with ten epigenetic tracks and was trained using five-fold cross-validation. This repository provides scripts to download the example dataset and run inference using the released weights.
-data source
-![data source](/docs/data_source.png)
+### data source
+| Epigenetic Feature | Source Database | Sample ID      | bigWig File Size |
+|--------------------|-----------------|---------------|------------------|
+| ATAC-seq           | ENCODE          | ENCFF615UQB   | 248 MB           |
+| CTCF ChIP-seq      | GEO             | GSM2423745    | 1.6 GB           |
+| DNase-seq          | GEO             | GSM1008573    | 3.2 GB           |
+| H3K4me3 ChIP-seq   | GEO             | GSM2711412    | 225 MB           |
+| H3K27ac ChIP-seq   | GEO             | GSM2711409    | 336 MB           |
+| H3K4me1 ChIP-seq   | GEO             | GSM4287413    | 196 MB           |
+| H3K9me3 ChIP-seq   | GEO             | GSM1624501    | 172 MB           |
+| H3K36me3 ChIP-seq  | GEO             | GSM2643621    | 450 MB           |
+| H3K27me3 ChIP-seq  | GEO             | GSM3907592    | 162 MB           |
+| RRBS               | ENCODE          | ENCSR794HFF   | 28 MB            |
+
 
 ### main hyperparameters
 
