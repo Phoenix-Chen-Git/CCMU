@@ -4,7 +4,8 @@ CCMU (Combined Multi-feature Unified model) is a Transformer-based classifier fo
 data source
 ![data source](/docs/data_source.png)
 
-main hyperparameters
+###main hyperparameters
+**main hyperparameters**
 | Hyperparameter Name         | Value               | Description                                    |
 |----------------------------|---------------------|------------------------------------------------|
 | Input Channels              | 18                  | 10 epigenetic features + 8 sequence features   |
