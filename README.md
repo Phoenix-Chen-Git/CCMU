@@ -29,7 +29,7 @@ CCMU (Combined Multi-feature Unified model) is a Transformer-based classifier fo
 | Positive:Negative Weight Ratio | 2:1              | Positive sample weight is twice negative sample|
 | Training Epochs             | 300                 | Number of cross-validation training epochs     |
 | Samples per Epoch           | 800 (400+400)       | 400 positive and 400 negative samples per epoch|
-### Model architecture
+### Figure 1. Model architecture
 <p align="center">
   <img src="docs/Model_architecture.png" alt="model architecture"/>
 </p>
@@ -43,6 +43,11 @@ CCMU (Combined Multi-feature Unified model) is a Transformer-based classifier fo
 | 3    | FNR=0.1       | 1.0000 | 0.672   | 0.100  |
 | 4    | FNR=0.1       | 1.0000 | 0.707   | 0.128  |
 | 5    | FNR=0.1       | 0.5150 | 0.704   | 0.106  |
+### Figure 2. MIT's FNR and FPR vs cutoff
+![FNR and FPR vs cutoff](docs/MIT/FNR_FPR_vs_Cutoff.png)
+![FNR and FPR vs cutoff](docs/MIT/ROC_Curve.png)
+![FNR and FPR vs cutoff](docs/MIT/PR_Curve.png)
+![FNR and FPR vs cutoff](docs/MIT/Confusion_matrix.png)
 ### Table 4. CFD algorithm metrics
 | Fold | FNR Constraint | FPR    | ROC-AUC | PR-AUC |
 |------|---------------|--------|---------|--------|
