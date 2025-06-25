@@ -61,11 +61,12 @@ CCMU (Combined Multi-feature Unified model) is a Transformer-based classifier fo
       <b>c. PR Curve</b>
     </td>
     <td align="center">
-      <img src="docs/MIT/MIT_confuion.png" width="350"/><br>
+      <img src="docs/MIT/MIT_confusion.png" width="350"/><br>
       <b>d. Confusion matrix</b>
     </td>
   </tr>
 </table>
+
 ### Table 4. CFD algorithm metrics
 | Fold | FNR Constraint | FPR    | ROC-AUC | PR-AUC |
 |------|---------------|--------|---------|--------|
@@ -91,7 +92,7 @@ CCMU (Combined Multi-feature Unified model) is a Transformer-based classifier fo
       <b>c. PR Curve</b>
     </td>
     <td align="center">
-      <img src="docs/CFD/CFD_confuion.png" width="350"/><br>
+      <img src="docs/CFD/CFD_confusion.png" width="350"/><br>
       <b>d. Confusion matrix</b>
     </td>
   </tr>
