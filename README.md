@@ -99,6 +99,7 @@ CCMU (Combined Multi-feature Unified model) is a Transformer-based classifier fo
     </td>
   </tr>
 </table>
+
 ### Table 5. Model five-fold cross-validation metrics
 | Fold | FNR Constraint |  FPR    | ROC-AUC | PR-AUC |
 |------|---------------|---------|---------|--------|
