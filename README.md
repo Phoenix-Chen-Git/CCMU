@@ -44,13 +44,29 @@ CCMU (Combined Multi-feature Unified model) is a Transformer-based classifier fo
 | 4    | FNR=0.1       | 1.0000 | 0.707   | 0.128  |
 | 5    | FNR=0.1       | 0.5150 | 0.704   | 0.106  |
 ### Figure 2. MIT's FNR and FPR vs cutoff
-<p align="center">
-  <img src="docs/MIT/FNR_FPR_vs_Cutoff.png" alt="FNR and FPR vs cutoff" width="350"/>
-  <img src="docs/MIT/ROC_Curve.png" alt="ROC Curve" width="350"/>
-  <br>
-  <img src="docs/MIT/PR_Curve.png" alt="PR Curve" width="350"/>
-  <img src="docs/MIT/Confusion_matrix.png" alt="Confusion matrix" width="350"/>
-</p>
+<table align="center">
+  <tr>
+    <td align="center">
+      <img src="docs/MIT/FNR_FPR_vs_Cutoff.png" width="350"/><br>
+      <b>Figure 1. FNR and FPR vs cutoff</b>
+    </td>
+    <td align="center">
+      <img src="docs/MIT/ROC_Curve.png" width="350"/><br>
+      <b>Figure 2. ROC Curve</b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="docs/MIT/PR_Curve.png" width="350"/><br>
+      <b>Figure 3. PR Curve</b>
+    </td>
+    <td align="center">
+      <img src="docs/MIT/Confusion_matrix.png" width="350"/><br>
+      <b>Figure 4. Confusion matrix</b>
+    </td>
+  </tr>
+</table>
+
 
 
 ### Table 4. CFD algorithm metrics
