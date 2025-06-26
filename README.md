@@ -47,21 +47,21 @@ CCMU (Combined Multi-feature Unified model) is a Transformer-based classifier fo
 <table align="center">
   <tr>
     <td align="center">
-      <img src="docs/MIT/FNR_FPR_vs_Cutoff.png" width="350"/><br>
+      <img src="docs/MIT/FNR_FPR_vs_Cutoff.jpg" width="350"/><br>
       <b>a. FNR and FPR vs cutoff</b>
     </td>
     <td align="center">
-      <img src="docs/MIT/ROC_Curve.png" width="350"/><br>
+      <img src="docs/MIT/ROC_Curve.jpg" width="350"/><br>
       <b>b. ROC Curve</b>
     </td>
   </tr>
   <tr>
     <td align="center">
-      <img src="docs/MIT/PR_Curve.png" width="350"/><br>
+      <img src="docs/MIT/PR_Curve.jpg" width="350"/><br>
       <b>c. PR Curve</b>
     </td>
     <td align="center">
-      <img src="docs/MIT/MIT_confusion.png" width="350"/><br>
+      <img src="docs/MIT/MIT_confusion.jpg" width="350"/><br>
       <b>d. Confusion matrix</b>
     </td>
   </tr>
@@ -78,21 +78,21 @@ CCMU (Combined Multi-feature Unified model) is a Transformer-based classifier fo
 <table align="center">
   <tr>
     <td align="center">
-      <img src="docs/CFD/FNR_FPR_vs_Cutoff.png" width="350"/><br>
+      <img src="docs/CFD/FNR_FPR_vs_Cutoff.jpg" width="350"/><br>
       <b>a. FNR and FPR vs cutoff</b>
     </td>
     <td align="center">
-      <img src="docs/CFD/ROC_Curve.png" width="350"/><br>
+      <img src="docs/CFD/ROC_Curve.jpg" width="350"/><br>
       <b>b. ROC Curve</b>
     </td>
   </tr>
   <tr>
     <td align="center">
-      <img src="docs/CFD/PR_Curve.png" width="350"/><br>
+      <img src="docs/CFD/PR_Curve.jpg" width="350"/><br>
       <b>c. PR Curve</b>
     </td>
     <td align="center">
-      <img src="docs/CFD/CFD_confusion.png" width="350"/><br>
+      <img src="docs/CFD/CFD_confusion.jpg" width="350"/><br>
       <b>d. Confusion matrix</b>
     </td>
   </tr>
