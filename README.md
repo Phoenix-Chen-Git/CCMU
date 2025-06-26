@@ -75,6 +75,7 @@ CCMU (Combined Multi-feature Unified model) is a Transformer-based classifier fo
 | 3    | FNR=0.1       | 0.886  | 0.794   | 0.279  |
 | 4    | FNR=0.1       | 0.590  | 0.832   | 0.242  |
 | 5    | FNR=0.1       | 0.589  | 0.826   | 0.270  |
+### Figure 3. CFD's FNR and FPR vs cutoff
 <table align="center">
   <tr>
     <td align="center">
