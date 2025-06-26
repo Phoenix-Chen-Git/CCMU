@@ -107,6 +107,42 @@ CCMU (Combined Multi-feature Unified model) is a Transformer-based classifier fo
 | 3    | FNR < 0.1     | 0.0553  | 0.97    | 0.11   |
 | 4    | FNR < 0.1     | 0.0742  | 0.96    | 0.09   |
 | 5    | FNR < 0.1     | 0.1446  | 0.97    | 0.13   |
+### Figure 4. Combined Model Performance
+<table align="center">
+  <tr>
+    <td align="center" colspan="2">
+      <img src="docs/combined_model/example.png" width="500"/><br>
+      <b>a. One sample</b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" colspan="2">
+      <img src="docs/combined_model/combine_Loss&accuracy.png" width="730"/><br>
+      <b>b. Loss & Accuracy over iteration</b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="350">
+      <img src="docs/combined_model/combine_ROC.png" width="350"/><br>
+      <b>c. ROC Curve</b>
+    </td>
+    <td align="center" width="350">
+      <img src="docs/combined_model/combine_PR.png" width="350"/><br>
+      <b>d. PR Curve</b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="350">
+      <img src="docs/combined_model/combine_FNR_FPR.png" width="350"/><br>
+      <b>e. FNR & FPR over iteration</b>
+    </td>
+    <td align="center" width="350">
+      <img src="docs/combined_model/Confusion_matrix.png" width="350"/><br>
+      <b>f. Confusion Matrix</b>
+    </td>
+  </tr>
+</table>
+
 ### Table 6. Epigenetic-only model five-fold cross-validation metrics
 | Fold | FNR Constraint |  FPR    | ROC-AUC | PR-AUC |
 |------|---------------|---------|---------|--------|
@@ -115,6 +151,42 @@ CCMU (Combined Multi-feature Unified model) is a Transformer-based classifier fo
 | 3    | FNR < 0.1     | 0.3681  | 0.85    | 0.02   |
 | 4    | FNR < 0.1     | 0.3501  | 0.86    | 0.03   |
 | 5    | FNR < 0.1     | 0.5748  | 0.83    | 0.03   |
+### Figure 5. Epigenetic-only model Performance
+<table align="center">
+  <tr>
+    <td align="center" colspan="2">
+      <img src="docs/epi_only_model/epi_only_exsample.png" width="500"/><br>
+      <b>a. One sample</b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" colspan="2">
+      <img src="docs/epi_only_model/epi_loss.png" width="730"/><br>
+      <b>b. Loss & Accuracy over iteration</b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="350">
+      <img src="docs/epi_only_model/epi_roc.png" width="350"/><br>
+      <b>c. ROC Curve</b>
+    </td>
+    <td align="center" width="350">
+      <img src="docs/epi_only_model/epi_pr.png" width="350"/><br>
+      <b>d. PR Curve</b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="350">
+      <img src="docs/epi_only_model/epi_fnr_fpr.png" width="350"/><br>
+      <b>e. FNR & FPR over iteration</b>
+    </td>
+    <td align="center" width="350">
+      <img src="docs/epi_only_model/epi_confusion_matrix.png" width="350"/><br>
+      <b>f. Confusion Matrix</b>
+    </td>
+  </tr>
+</table>
+
 ### Table 7. Sequence-only model five-fold cross-validation metrics
 | Fold | FNR Constraint |  FPR    | ROC-AUC | PR-AUC |
 |------|---------------|---------|---------|--------|
@@ -123,3 +195,38 @@ CCMU (Combined Multi-feature Unified model) is a Transformer-based classifier fo
 | 3    | FNR < 0.1     | 0.0393  | 0.99    | 0.40   |
 | 4    | FNR < 0.1     | 0.0340  | 0.99    | 0.36   |
 | 5    | FNR < 0.1     | 0.0348  | 0.99    | 0.40   |
+### Figure 6. Sequence-only model Performance
+<table align="center">
+  <tr>
+    <td align="center" colspan="2">
+      <img src="docs/seq_only_model/seq_exsample.png" width="500"/><br>
+      <b>a. One sample</b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" colspan="2">
+      <img src="docs/seq_only_model/seq_loss.png" width="730"/><br>
+      <b>b. Loss & Accuracy over iteration</b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="350">
+      <img src="docs/seq_only_model/seq_roc.png" width="350"/><br>
+      <b>c. ROC Curve</b>
+    </td>
+    <td align="center" width="350">
+      <img src="docs/seq_only_model/seq_PR.png" width="350"/><br>
+      <b>d. PR Curve</b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="350">
+      <img src="docs/seq_only_model/seq_FNR_FPR.png" width="350"/><br>
+      <b>e. FNR & FPR over iteration</b>
+    </td>
+    <td align="center" width="350">
+      <img src="docs/combined_model/Confusion_matrix.png" width="350"/><br>
+      <b>f. docs/seq_only_model/seq_confusion.png</b>
+    </td>
+  </tr>
+</table>
