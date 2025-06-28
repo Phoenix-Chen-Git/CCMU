@@ -87,8 +87,7 @@ Follow these steps to reproduce the example results:
 <p align="center">
   <img src="docs/Model_architecture.png" alt="model architecture"/>
 </p>
-Schematic of the model architecture. The input tensor [𝑁,18,23]
-[N,18,23] is linearly embedded into a 256-dimensional space, followed by positional encoding and layer normalization. The processed sequence passes through three stacked transformer encoder layers, each consisting of multi-head self-attention, add & norm, and a feed-forward network (256→512→256). The output is globally pooled across the sequence dimension, then passed through a linear layer and sigmoid activation to produce the final prediction.
+Schematic of the model architecture. The input tensor [N,18,23] is linearly embedded into a 256-dimensional space, followed by positional encoding and layer normalization. The processed sequence passes through three stacked transformer encoder layers, each consisting of multi-head self-attention, add & norm, and a feed-forward network (256→512→256). The output is globally pooled across the sequence dimension, then passed through a linear layer and sigmoid activation to produce the final prediction.
 This design enables the model to capture contextual dependencies within sequences and output a probability score for each sample.
 
 # Benchmark on MIT and CFD Datasets
