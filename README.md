@@ -1,4 +1,4 @@
-# CCMU: CRISPR-Cas9 Off‑target Prediction
+# CCMU: CRISPR-Cas9 Off-target Prediction Combined Multi-feature Unified Model Integrating Epigenetic Features with Transformer 
 ![Cover](docs/Cover.png)
 # Table of Contents
 - [Overview](#overview)
@@ -10,24 +10,25 @@
 - [Model Architecture](#model-architecture)
 - [Benchmark on MIT, CFD, and CCMU Series Models](#benchmark-on-mit-cfd-and-ccmu-series-models)
   - [Table 3. MIT Algorithm Metrics](#table-3-mit-algorithm-metrics)
-  - [Figure 2. MIT: FNR and FPR vs. Cutoff](#figure-2-mit-fnr-and-fpr-vs-cutoff)
-  - [Table 4. CFD algorithm metrics](#table-4-cfd-algorithm-metrics)
-  - [Figure 3. CFD: FNR and FPR vs. Cutoff](#figure-3-cfd-fnr-and-fpr-vs-cutoff)
-  - [Table 5. Mixed model five-fold cross-validation metrics](#table-5-mixed-model-five-fold-cross-validation-metrics)
+  - [Figure 2. MIT Algorithm Metrics](#figure-2-mit-algorithm-metrics)
+  - [Table 4. CFD Algorithm Metrics](#table-4-cfd-algorithm-metrics)
+  - [Figure 3. CFD Algorithm Metrics](#figure-3-cfd-algorithm-metrics)
+  - [Table 5. Mixed Model Five-Fold Cross-Validation Metrics](#table-5-mixed-model-five-fold-cross-validation-metrics)
   - [Figure 4. Combined Model Performance](#figure-4-combined-model-performance)
-  - [Table 6. Epigenetic-only model five-fold cross-validation metrics](#table-6-epigenetic-only-model-five-fold-cross-validation-metrics)
-  - [Figure 5. Epigenetic-only Model Performance](#figure-5-epigenetic-only-model-performance)
-  - [Table 7. Sequence-only model five-fold cross-validation metrics](#table-7-sequence-only-model-five-fold-cross-validation-metrics)
-  - [Figure 6. Sequence-only Model Performance](#figure-6-sequence-only-model-performance)
+  - [Table 6. Epigenetic-only CCMU Five-Fold Cross-Validation Metrics](#table-6-epigenetic-only-ccmu-five-fold-cross-validation-metrics)
+  - [Figure 5. Epigenetic-only CCMU Performance](#figure-5-epigenetic-only-ccmu-performance)
+  - [Table 7. Sequence-only CCMU Five-Fold Cross-Validation Metrics](#table-7-sequence-only-ccmu-five-fold-cross-validation-metrics)
+  - [Figure 6. Sequence-only CCMU Performance](#figure-6-sequence-only-ccmu-performance)
 - [Comparison Across Models](#comparison-across-models)
   - [Figure 7. Comparison Across Models](#figure-7-comparison-across-models)
 - [Attention Mechanism](#attention-mechanism)
   - [Figure 8. Positive](#figure-8-positive)
   - [Figure 9. Negative](#figure-9-negative)
+- [Conclusion](#conclusion)
 - [Acknowledgments](#acknowledgments)
 - [Project Status](#project-status)
 # Overview
-CCMU (Combined Multi-feature Unified model) is a Transformer-based classifier for predicting CRISPR-Cas9 off-target activity. The model integrates nucleotide sequence context with ten epigenetic tracks and is trained using five-fold cross-validation. This repository provides scripts to download the example dataset and to run inference using the released weights.
+CCMU (CRISPR-Cas9 Off-target Prediction Combined Multi-feature Unified Model) is a Transformer-based classifier for predicting CRISPR-Cas9 off-target activity. The model integrates nucleotide sequence context with ten epigenetic tracks and is trained using five-fold cross-validation. This repository provides scripts to download the example dataset and to run inference using the released weights.
 
 # How to Use
 Follow these steps to reproduce the example results:
@@ -250,7 +251,7 @@ FPR decreases steadily during training, while FNR increases, indicating a trade-
 Figure 4f. Confusion Matrix:  
 Of 32,336 true negatives, 1,159 were falsely predicted as positives (FPR ~0.069). Among 107 true positives, 80 were correctly predicted, with 27 missed—resulting in FNR ~0.25. This mismatch suggests epoch selection might differ from the per-fold optimal point. Though not perfect, this performance is far better than the MIT and CFD models.
 
-## Table 6. Epigenetic-only model five-fold cross-validation metrics
+## Table 6. Epigenetic-only CCMU five-fold cross-validation metrics
 | Fold | FNR Constraint |  FPR    | ROC-AUC | PR-AUC |
 |------|---------------|---------|---------|--------|
 | 1    | FNR < 0.1     | 0.5709  | 0.83    | 0.02   |
@@ -259,9 +260,9 @@ Of 32,336 true negatives, 1,159 were falsely predicted as positives (FPR ~0.069)
 | 4    | FNR < 0.1     | 0.3501  | 0.86    | 0.03   |
 | 5    | FNR < 0.1     | 0.5748  | 0.83    | 0.03   |
 
-The epigenetic-only model demonstrates some predictive ability, with FPR ranging from 0.35 to 0.59 and ROC-AUC between 0.83 and 0.86 across folds. However, PR-AUC remains very low (0.02–0.03), indicating that while the model can distinguish classes to some extent, it struggles to accurately identify true positives in the presence of strong class imbalance.
+The epigenetic-only CCMU demonstrates some predictive ability, with FPR ranging from 0.35 to 0.59 and ROC-AUC between 0.83 and 0.86 across folds. However, PR-AUC remains very low (0.02–0.03), indicating that while the model can distinguish classes to some extent, it struggles to accurately identify true positives in the presence of strong class imbalance.
 
-## Figure 5. Epigenetic-only Model Performance
+## Figure 5. Epigenetic-only CCMU Performance
 <table align="center">
   <tr>
     <td align="center" colspan="2">
@@ -304,10 +305,10 @@ Figure 5b. Loss & Accuracy Over Iterations:
 The model shows modest convergence over 50 epochs. Training loss decreases steadily, while test loss exhibits periodic fluctuations—suggesting some instability. Accuracy peaks at ~0.75 (train) and ~0.65 (test), showing limited generalization.
 
 Figure 5c. ROC Curve:
-The ROC-AUC of 0.83 shows that the epigenetic-only model can distinguish between positive and negative classes to some extent, but its performance is notably lower than the combined or sequence-only models. This suggests that epigenetic features alone are insufficient for accurate classification, and integrating sequence information is necessary for strong predictive power. As with previous models, the AUC may also be inflated due to dataset imbalance.
+The ROC-AUC of 0.83 shows that the epigenetic-only CCMU can distinguish between positive and negative classes to some extent, but its performance is notably lower than the combined or sequence-only CCMU. This suggests that epigenetic features alone are insufficient for accurate classification, and integrating sequence information is necessary for strong predictive power. As with previous models, the AUC may also be inflated due to dataset imbalance.
 
 Figure 5d. Precision-Recall (PR) Curve:
-PR-AUC is extremely low (0.02), indicating that the epigenetic-only model struggles to make accurate positive predictions even when recall is high. This underscores that relying solely on epigenetic features is insufficient for precise off-target identification; sequence information is essential for robust performance.
+PR-AUC is extremely low (0.02), indicating that the epigenetic-only CCMU struggles to make accurate positive predictions even when recall is high. This underscores that relying solely on epigenetic features is insufficient for precise off-target identification; sequence information is essential for robust performance.
 
 Figure 5e. FNR and FPR Over Iterations:
 The model keeps FNR slightly below 0.1, fulfilling the constraint. However, FPR decreases to the 0.3–0.4 range, which is still not low enough and indicates a substantial false positive rate.
@@ -315,7 +316,7 @@ The model keeps FNR slightly below 0.1, fulfilling the constraint. However, FPR 
 Figure 5f. Confusion Matrix:
 From Fold 1, out of 33,495 total negatives, 12,041 are false positives (FPR ~0.57), while 89 out of 107 positives are correctly predicted (FNR ~0.17, which is higher than the target—possibly an off-epoch snapshot). Precision is low due to heavy false positive burden.
 
-## Table 7. Sequence-only model five-fold cross-validation metrics
+## Table 7. Sequence-only CCMU five-fold cross-validation metrics
 | Fold | FNR Constraint |  FPR    | ROC-AUC | PR-AUC |
 |------|---------------|---------|---------|--------|
 | 1    | FNR < 0.1     | 0.0390  | 0.99    | 0.31   |
@@ -326,7 +327,7 @@ From Fold 1, out of 33,495 total negatives, 12,041 are false positives (FPR ~0.5
 
 FNR is set to be lower than 0.1 across all five folds. FPR remains consistently low (0.0316–0.0393), ROC-AUC is stable at 0.99, and PR-AUC values range from 0.31 to 0.40. These represent the best overall PR-AUC values among all tested models.
 
-## Figure 6. Sequence-only Model Performance
+## Figure 6. Sequence-only CCMU Performance
 <table align="center">
   <tr>
     <td align="center" colspan="2">
@@ -372,7 +373,7 @@ Figure 6c. ROC Curve:
 The ROC-AUC is exceptionally high (0.99), indicating near-perfect class discrimination. As with other models, this metric is affected by data imbalance, though its magnitude still reflects strong separation capability.
 
 Figure 6d. Precision-Recall (PR) Curve:
-The PR-AUC for Fold 1 is 0.31, which—while not perfect due to the strict FNR constraint—is substantially higher than the MIT, CFD, and epigenetic-only models. The relatively low PR-AUC reflects the trade-off imposed by maintaining FNR < 0.1, yet overall performance is much improved compared to previous approaches.
+The PR-AUC for Fold 1 is 0.31, which—while not perfect due to the strict FNR constraint—is substantially higher than the MIT, CFD, and epigenetic-only CCMU. The relatively low PR-AUC reflects the trade-off imposed by maintaining FNR < 0.1, yet overall performance is much improved compared to previous approaches.
 
 Figure 6e. FNR and FPR Over Iterations:  
 FNR increases slightly during training but consistently stays below the 0.1 constraint. FPR decreases dramatically and stabilizes well under 0.05, indicating strong control over false positives while maintaining low false negatives.
@@ -384,7 +385,7 @@ Out of 32,336 true negatives, only 1,159 are misclassified (FPR ~0.035). Of 107 
 ## Figure 7. Comparison Across Models
 ![Model comparison](docs/Comparision_between_models.png)
 
-The box plots confirm that the Seq-Only model dominates overall performance, achieving low FPR, high ROC-AUC, and the best PR-AUC. CCMU also shows promise with low FPR and high ROC-AUC but lower PR-AUC. In contrast, MIT suffers from extreme false positives, while Epi Only fails in precision. CFD occupies the middle ground with moderate scores across all metrics.
+The box plots confirm that the Seq-Only CCMU dominates overall performance, achieving low FPR, high ROC-AUC, and the best PR-AUC. CCMU also shows promise with low FPR and high ROC-AUC but lower PR-AUC. In contrast, MIT suffers from extreme false positives, while Epi Only CCMU fails in precision. CFD occupies the middle ground with moderate scores across all metrics.
 
 # Attention Mechanism
 ## Figure 8. Positive
@@ -402,7 +403,7 @@ Figure 8 shows the attention patterns across all heads and layers for a positive
 Figure 9 illustrates the attention head outputs across three layers for a negatively predicted sequence. Most attention maps exhibit classic global patterns—vertical stripes indicating widespread attention to all key positions. Notably, only Head 2 in Layer 1, Layer 2, and Layer 3 shows local attention behavior, characterized by cross-diagonal bands, suggesting these heads focus on localized sequence relationships. The persistence of local focus in Head 2 across all layers may indicate a dedicated path for local pattern extraction. However, the lack of diverse local heads, compared to positive cases, suggests that negative predictions rely more heavily on uniform global aggregation rather than positional specificity. This may reflect the model’s strategy of deemphasizing precise motif matching when rejecting potential positives.
 # Conclusion
 
-The sequence-only model demonstrates the best classification performance among all tested approaches, achieving high ROC-AUC and PR-AUC with low false positive rates. To further improve outcomes, future work should consider either scaling up the model to better capture both epigenetic and sequence features, or adopting advanced architectures such as ResNet and cross-attention mechanisms. These strategies can help integrate epigenetic information without compromising the model's ability to learn sequence-specific patterns.
+The sequence-only CCMU demonstrates the best classification performance among all tested approaches, achieving high ROC-AUC and PR-AUC with low false positive rates. To further improve outcomes, future work should consider either scaling up the model to better capture both epigenetic and sequence features, or adopting advanced architectures such as ResNet and cross-attention mechanisms. These strategies can help integrate epigenetic information without compromising the model's ability to learn sequence-specific patterns.
 
 # Acknowledgments
 I gratefully thank my parents for supporting this project and providing the funds to rent cloud servers for model training.
