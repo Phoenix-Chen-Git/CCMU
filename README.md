@@ -2,6 +2,7 @@
 ![Cover](docs/Cover.png)
 # Table of Contents
 - [Overview](#overview)
+- [How to Use](#how-to-use)
 - [Data Sources](#data-sources)
   - [Table 1. Data Sources](#table-1-data-sources)
 - [Hyperparameters](#hyperparameters)
@@ -26,6 +27,29 @@
 - [Acknowledgments](#acknowledgments)
 # Overview
 CCMU (Combined Multi-feature Unified model) is a Transformer-based classifier for predicting CRISPR-Cas9 off-target activity. The model integrates nucleotide sequence context with ten epigenetic tracks and is trained using five-fold cross-validation. This repository provides scripts to download the example dataset and to run inference using the released weights.
+
+# How to Use
+Follow these steps to reproduce the example results:
+
+1. **Create the environment** (requires Conda):
+   ```bash
+   conda env create -f CCMU.yml
+   conda activate CCMU
+   ```
+
+2. **Download the data and pre-trained weights**:
+   ```bash
+   bash download.sh
+   ```
+   This runs the helper scripts in `download_scripts/` to fetch epigenetic data,
+   mean and standard deviation files, training data, and weight checkpoints.
+
+3. **Run inference** with one of the provided Python scripts:
+   ```bash
+   python infer_combined.py       # full model using sequence + epigenetics
+   python infer_epi_only.py       # model using only epigenetic channels
+   python infer_seq_only_model.py # model using only sequence information
+   ```
 
 # Data Sources
 ## Table 1. Data Sources
