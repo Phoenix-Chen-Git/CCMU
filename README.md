@@ -1,6 +1,6 @@
 # CCMU: CRISPR-Cas9 Off‑target Prediction
 ![Cover](docs/Cover.png)
-## Table of Contents
+# Table of Contents
 - [Overview](#overview)
 - [Data Sources](#data-sources)
   - [Table 1. Data Sources](#table-1-data-sources)
@@ -24,11 +24,11 @@
   - [Figure 8. Positive](#figure-8-positive)
   - [Figure 9. Negative](#figure-9-negative)
 - [Acknowledgments](#acknowledgments)
-## Overview
+# Overview
 CCMU (Combined Multi-feature Unified model) is a Transformer-based classifier for predicting CRISPR-Cas9 off-target activity. The model integrates nucleotide sequence context with ten epigenetic tracks and is trained using five-fold cross-validation. This repository provides scripts to download the example dataset and to run inference using the released weights.
 
-## Data Sources
-### Table 1. Data Sources
+# Data Sources
+## Table 1. Data Sources
 | Epigenetic Feature | Source Database | Sample ID      | File Size |
 |--------------------|-----------------|---------------|------------------|
 | ATAC-seq           | ENCODE          | ENCFF615UQB   | 248 MB           |
@@ -41,8 +41,8 @@ CCMU (Combined Multi-feature Unified model) is a Transformer-based classifier fo
 | H3K36me3 ChIP-seq  | GEO             | GSM2643621    | 450 MB           |
 | H3K27me3 ChIP-seq  | GEO             | GSM3907592    | 162 MB           |
 | RRBS               | ENCODE          | ENCSR794HFF   | 28 MB            |
-## Hyperparameters
-### Table 2. Main Hyperparameters
+# Hyperparameters
+## Table 2. Main Hyperparameters
 | Hyperparameter Name         | Value               | Description                                    |
 |----------------------------|---------------------|------------------------------------------------|
 | Input Channels              | 18                  | 10 epigenetic features + 8 sequence features   |
@@ -57,14 +57,14 @@ CCMU (Combined Multi-feature Unified model) is a Transformer-based classifier fo
 | Positive:Negative Weight Ratio | 2:1              | Positive sample weight is twice negative sample|
 | Training Epochs             | 300                 | Number of cross-validation training epochs     |
 | Samples per Epoch           | 800 (400+400)       | 400 positive and 400 negative samples per epoch|
-## Model Architecture
-### Figure 1. Model Architecture
+# Model Architecture
+## Figure 1. Model Architecture
 <p align="center">
   <img src="docs/Model_architecture.png" alt="model architecture"/>
 </p>
 
-## Benchmark on MIT and CFD Datasets
-### Table 3. MIT Algorithm Metrics
+# Benchmark on MIT and CFD Datasets
+## Table 3. MIT Algorithm Metrics
 | Fold | FNR Constraint | FPR    | ROC-AUC | PR-AUC |
 |------|---------------|--------|---------|--------|
 | 1    | FNR=0.1       | 1.0000 | 0.681   | 0.110  |
@@ -72,7 +72,7 @@ CCMU (Combined Multi-feature Unified model) is a Transformer-based classifier fo
 | 3    | FNR=0.1       | 1.0000 | 0.672   | 0.100  |
 | 4    | FNR=0.1       | 1.0000 | 0.707   | 0.128  |
 | 5    | FNR=0.1       | 0.5150 | 0.704   | 0.106  |
-### Figure 2. MIT: FNR and FPR vs. Cutoff
+## Figure 2. MIT: FNR and FPR vs. Cutoff
 <table align="center">
   <tr>
     <td align="center">
@@ -96,7 +96,7 @@ CCMU (Combined Multi-feature Unified model) is a Transformer-based classifier fo
   </tr>
 </table>
 
-### Table 4. CFD algorithm metrics
+## Table 4. CFD algorithm metrics
 | Fold | FNR Constraint | FPR    | ROC-AUC | PR-AUC |
 |------|---------------|--------|---------|--------|
 | 1    | FNR=0.1       | 0.720  | 0.825   | 0.230  |
@@ -104,7 +104,7 @@ CCMU (Combined Multi-feature Unified model) is a Transformer-based classifier fo
 | 3    | FNR=0.1       | 0.886  | 0.794   | 0.279  |
 | 4    | FNR=0.1       | 0.590  | 0.832   | 0.242  |
 | 5    | FNR=0.1       | 0.589  | 0.826   | 0.270  |
-### Figure 3. CFD: FNR and FPR vs. Cutoff
+## Figure 3. CFD: FNR and FPR vs. Cutoff
 <table align="center">
   <tr>
     <td align="center">
@@ -128,7 +128,7 @@ CCMU (Combined Multi-feature Unified model) is a Transformer-based classifier fo
   </tr>
 </table>
 
-### Table 5. Mixed model five-fold cross-validation metrics
+## Table 5. Mixed model five-fold cross-validation metrics
 | Fold | FNR Constraint |  FPR    | ROC-AUC | PR-AUC |
 |------|---------------|---------|---------|--------|
 | 1    | FNR < 0.1     | 0.0694  | 0.97    | 0.14   |
@@ -136,7 +136,7 @@ CCMU (Combined Multi-feature Unified model) is a Transformer-based classifier fo
 | 3    | FNR < 0.1     | 0.0553  | 0.97    | 0.11   |
 | 4    | FNR < 0.1     | 0.0742  | 0.96    | 0.09   |
 | 5    | FNR < 0.1     | 0.1446  | 0.97    | 0.13   |
-### Figure 4. Combined Model Performance
+## Figure 4. Combined Model Performance
 <table align="center">
   <tr>
     <td align="center" colspan="2">
@@ -172,7 +172,7 @@ CCMU (Combined Multi-feature Unified model) is a Transformer-based classifier fo
   </tr>
 </table>
 
-### Table 6. Epigenetic-only model five-fold cross-validation metrics
+## Table 6. Epigenetic-only model five-fold cross-validation metrics
 | Fold | FNR Constraint |  FPR    | ROC-AUC | PR-AUC |
 |------|---------------|---------|---------|--------|
 | 1    | FNR < 0.1     | 0.5709  | 0.83    | 0.02   |
@@ -180,7 +180,7 @@ CCMU (Combined Multi-feature Unified model) is a Transformer-based classifier fo
 | 3    | FNR < 0.1     | 0.3681  | 0.85    | 0.02   |
 | 4    | FNR < 0.1     | 0.3501  | 0.86    | 0.03   |
 | 5    | FNR < 0.1     | 0.5748  | 0.83    | 0.03   |
-### Figure 5. Epigenetic-only Model Performance
+## Figure 5. Epigenetic-only Model Performance
 <table align="center">
   <tr>
     <td align="center" colspan="2">
@@ -216,7 +216,7 @@ CCMU (Combined Multi-feature Unified model) is a Transformer-based classifier fo
   </tr>
 </table>
 
-### Table 7. Sequence-only model five-fold cross-validation metrics
+## Table 7. Sequence-only model five-fold cross-validation metrics
 | Fold | FNR Constraint |  FPR    | ROC-AUC | PR-AUC |
 |------|---------------|---------|---------|--------|
 | 1    | FNR < 0.1     | 0.0390  | 0.99    | 0.31   |
@@ -224,7 +224,7 @@ CCMU (Combined Multi-feature Unified model) is a Transformer-based classifier fo
 | 3    | FNR < 0.1     | 0.0393  | 0.99    | 0.40   |
 | 4    | FNR < 0.1     | 0.0340  | 0.99    | 0.36   |
 | 5    | FNR < 0.1     | 0.0348  | 0.99    | 0.40   |
-### Figure 6. Sequence-only Model Performance
+## Figure 6. Sequence-only Model Performance
 <table align="center">
   <tr>
     <td align="center" colspan="2">
@@ -260,11 +260,11 @@ CCMU (Combined Multi-feature Unified model) is a Transformer-based classifier fo
   </tr>
 </table>
 
-## Comparison Across Models
-### Figure 7. Comparison Across Models
+# Comparison Across Models
+## Figure 7. Comparison Across Models
 ![Model comparison](docs/Comparision_between_models.png)
 
-## Attention Mechanism
+# Attention Mechanism
 ## Figure 8. Positive
 ![Positive layer1](docs/Positive_attention/layer_1.png)
 ![Positive layer2](docs/Positive_attention/layer_2.png)
@@ -274,7 +274,7 @@ CCMU (Combined Multi-feature Unified model) is a Transformer-based classifier fo
 ![Negative layer2](docs/Negative_attention/layer_2.png)
 ![Negative layer3](docs/Negative_attention/layer_3.png)
 
-## Acknowledgments
+# Acknowledgments
 I gratefully thank my parents for supporting this project and providing the funds to rent cloud servers for model training.
 
 Due to the current low level of interest in this repository, updates will be infrequent. If the project reaches 20 stars, development will resume with improvements such as an evolved tensor generator, additional protocols, and better architectures.
