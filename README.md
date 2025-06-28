@@ -25,6 +25,7 @@
   - [Figure 8. Positive](#figure-8-positive)
   - [Figure 9. Negative](#figure-9-negative)
 - [Acknowledgments](#acknowledgments)
+- [Project Status](#project-status)
 # Overview
 CCMU (Combined Multi-feature Unified model) is a Transformer-based classifier for predicting CRISPR-Cas9 off-target activity. The model integrates nucleotide sequence context with ten epigenetic tracks and is trained using five-fold cross-validation. This repository provides scripts to download the example dataset and to run inference using the released weights.
 
@@ -301,4 +302,5 @@ Follow these steps to reproduce the example results:
 # Acknowledgments
 I gratefully thank my parents for supporting this project and providing the funds to rent cloud servers for model training.
 
+# Project Status
 Due to the current low level of interest in this repository, updates will be infrequent. If the project reaches 20 stars, development will resume with improvements such as an evolved tensor generator, additional protocols, and better architectures.
