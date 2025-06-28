@@ -238,14 +238,15 @@ CCMU (Combined Multi-feature Unified model) is a Transformer-based classifier fo
 </table>
 
 ## Comparison Across Models
+### Figure 7. Comparison Across Models
 ![Model comparison](docs/Comparision_between_models.png)
 
 ## Attention Mechanism
-## Positive
+## Figure 8. Positive
 ![Positive layer1](docs/Positive_attention/layer_1.png)
 ![Positive layer2](docs/Positive_attention/layer_2.png)
 ![Positive layer3](docs/Positive_attention/layer_3.png)
-## Negative
+## Figure 9. Negative
 ![Negative layer1](docs/Negative_attention/layer_1.png)
 ![Negative layer2](docs/Negative_attention/layer_2.png)
 ![Negative layer3](docs/Negative_attention/layer_3.png)
