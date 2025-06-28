@@ -1,6 +1,29 @@
 # CCMU: CRISPR-Cas9 Off‑target Prediction
 ![Cover](docs/Cover.png)
-
+## Table of Contents
+- [Overview](#overview)
+- [Data Sources](#data-sources)
+  - [Table 1. Data Sources](#table-1-data-sources)
+- [Hyperparameters](#hyperparameters)
+  - [Table 2. Main Hyperparameters](#table-2-main-hyperparameters)
+- [Model Architecture](#model-architecture)
+- [Benchmark on MIT and CFD Datasets](#benchmark-on-mit-and-cfd-datasets)
+  - [Table 3. MIT Algorithm Metrics](#table-3-mit-algorithm-metrics)
+  - [Figure 2. MIT: FNR and FPR vs. Cutoff](#figure-2-mit-fnr-and-fpr-vs-cutoff)
+  - [Table 4. CFD algorithm metrics](#table-4-cfd-algorithm-metrics)
+  - [Figure 3. CFD: FNR and FPR vs. Cutoff](#figure-3-cfd-fnr-and-fpr-vs-cutoff)
+  - [Table 5. Mixed model five-fold cross-validation metrics](#table-5-mixed-model-five-fold-cross-validation-metrics)
+  - [Figure 4. Combined Model Performance](#figure-4-combined-model-performance)
+  - [Table 6. Epigenetic-only model five-fold cross-validation metrics](#table-6-epigenetic-only-model-five-fold-cross-validation-metrics)
+  - [Figure 5. Epigenetic-only Model Performance](#figure-5-epigenetic-only-model-performance)
+  - [Table 7. Sequence-only model five-fold cross-validation metrics](#table-7-sequence-only-model-five-fold-cross-validation-metrics)
+  - [Figure 6. Sequence-only Model Performance](#figure-6-sequence-only-model-performance)
+- [Comparison Across Models](#comparison-across-models)
+  - [Figure 7. Comparison Across Models](#figure-7-comparison-across-models)
+- [Attention Mechanism](#attention-mechanism)
+- [Figure 8. Positive](#figure-8-positive)
+- [Figure 9. Negative](#figure-9-negative)
+- [Acknowledgments](#acknowledgments)
 ## Overview
 CCMU (Combined Multi-feature Unified model) is a Transformer-based classifier for predicting CRISPR-Cas9 off-target activity. The model integrates nucleotide sequence context with ten epigenetic tracks and is trained using five-fold cross-validation. This repository provides scripts to download the example dataset and to run inference using the released weights.
 
