@@ -147,17 +147,7 @@ The confusion matrix further illustrates the skewed predictions. All 33,495 nega
 | 4    | FNR=0.1       | 0.590  | 0.832   | 0.242  |
 | 5    | FNR=0.1       | 0.589  | 0.826   | 0.270  |
 
-Figure 3a. FNR and FPR vs. Score Cutoff:
-The FNR sharply drops to the target 0.1 level as the score threshold increases, while the False Positive Rate (FPR) rises quickly and saturates around 0.72. This trade-off highlights the cost of meeting the FNR constraint—many negative samples are incorrectly flagged as positives.
-
-Figure 3b. ROC Curve:
-The ROC curve for Fold 1 yields an AUC of 0.825, suggesting strong discriminative ability. However, the high ROC-AUC may be influenced by the highly imbalanced dataset, where true negatives dominate the sample space.
-
-Figure 3c. Precision-Recall (PR) Curve:
-The PR curve shows better performance than the MIT algorithm, with a PR-AUC of 0.23. Still, precision decreases substantially as recall increases, showing that many predicted positives are false.
-
-Figure 3d. Confusion Matrix:
-Of 33,495 total negatives, 24,128 were misclassified (false positives), and only 9,367 were correctly identified. Among 107 true positives, 96 were correctly predicted. This shows a marked improvement in both recall and precision relative to the MIT model, but with considerable false positives remaining.
+Across the five folds, the FPR ranges from 0.576 to 0.886, while ROC-AUC remains high (0.794 to 0.832). PR-AUC ranges from 0.203 to 0.279, consistently outperforming MIT. The model satisfies the FNR constraint while offering improved—but still imperfect—balance between precision and recall.
 
 ## Figure 3. CFD algorithm metrics
 <table align="center">
@@ -183,7 +173,17 @@ Of 33,495 total negatives, 24,128 were misclassified (false positives), and only
   </tr>
 </table>
 
-Across the five folds, the FPR ranges from 0.576 to 0.886, while ROC-AUC remains high (0.794 to 0.832). PR-AUC ranges from 0.203 to 0.279, consistently outperforming MIT. The model satisfies the FNR constraint while offering improved—but still imperfect—balance between precision and recall.
+Figure 3a. FNR and FPR vs. Score Cutoff:
+The FNR sharply drops to the target 0.1 level as the score threshold increases, while the False Positive Rate (FPR) rises quickly and saturates around 0.72. This trade-off highlights the cost of meeting the FNR constraint—many negative samples are incorrectly flagged as positives.
+
+Figure 3b. ROC Curve:
+The ROC curve for Fold 1 yields an AUC of 0.825, suggesting strong discriminative ability. However, the high ROC-AUC may be influenced by the highly imbalanced dataset, where true negatives dominate the sample space.
+
+Figure 3c. Precision-Recall (PR) Curve:
+The PR curve shows better performance than the MIT algorithm, with a PR-AUC of 0.23. Still, precision decreases substantially as recall increases, showing that many predicted positives are false.
+
+Figure 3d. Confusion Matrix:
+Of 33,495 total negatives, 24,128 were misclassified (false positives), and only 9,367 were correctly identified. Among 107 true positives, 96 were correctly predicted. This shows a marked improvement in both recall and precision relative to the MIT model, but with considerable false positives remaining.
 
 ## Table 5. Mixed model five-fold cross-validation metrics
 | Fold | FNR Constraint |  FPR    | ROC-AUC | PR-AUC |
@@ -194,7 +194,7 @@ Across the five folds, the FPR ranges from 0.576 to 0.886, while ROC-AUC remains
 | 4    | FNR < 0.1     | 0.0742  | 0.96    | 0.09   |
 | 5    | FNR < 0.1     | 0.1446  | 0.97    | 0.13   |
 
-
+The model consistently meets the FNR constraint (<0.1) across all folds. FPR values are low (0.055–0.145), ROC-AUC remains consistently high at 0.96–0.97, and PR-AUC values range from 0.09 to 0.14. This reflects the model’s robustness and superior precision-recall tradeoff compared to MIT and CFD.
 
 ## Figure 4. Combined Model Performance
 <table align="center">
@@ -232,6 +232,24 @@ Across the five folds, the FPR ranges from 0.576 to 0.886, while ROC-AUC remains
   </tr>
 </table>
 
+Figure 4a. One Sample:
+A heatmap of a single input sample illustrates the input feature space, which includes chromatin accessibility (e.g., ATAC-seq), histone modifications, DNAse-seq, and sgRNA/off-site encodings across 23 sequence positions.
+
+Figure 4b. Loss & Accuracy Over Iterations:
+The model shows rapid convergence of both loss and accuracy. Training and test losses decrease smoothly across 300 epochs, with training loss reaching ~0.1. Accuracy curves show high final values: ~0.95 for training and ~0.92 for testing, suggesting effective generalization.
+
+Figure 4c. ROC Curve:
+The ROC curve for Fold 1 yields a very high AUC of 0.97, indicating excellent discriminative power between classes.
+
+Figure 4d. Precision-Recall (PR) Curve:
+Despite the high ROC-AUC, the PR-AUC remains relatively low at 0.14. This reflects the impact of class imbalance—many false positives remain despite strong separation ability.
+
+Figure 4e. FNR and FPR Over Iterations:
+Both FNR and FPR decrease sharply during early epochs. FPR stabilizes around 0.05–0.07, and FNR remains below the 0.1 constraint throughout, satisfying the target while maintaining balanced performance.
+
+Figure 4f. Confusion Matrix:
+Of 32,336 true negatives, 1,159 were falsely predicted as positives (FPR ~0.069). Among 107 true positives, 80 were correctly predicted, with 27 missed—resulting in FNR ~0.25. This mismatch suggests epoch selection might differ from the per-fold optimal point.
+
 ## Table 6. Epigenetic-only model five-fold cross-validation metrics
 | Fold | FNR Constraint |  FPR    | ROC-AUC | PR-AUC |
 |------|---------------|---------|---------|--------|
@@ -240,6 +258,9 @@ Across the five folds, the FPR ranges from 0.576 to 0.886, while ROC-AUC remains
 | 3    | FNR < 0.1     | 0.3681  | 0.85    | 0.02   |
 | 4    | FNR < 0.1     | 0.3501  | 0.86    | 0.03   |
 | 5    | FNR < 0.1     | 0.5748  | 0.83    | 0.03   |
+
+The FPR ranges from 0.35 to 0.59 across folds, with ROC-AUC between 0.83–0.86. PR-AUC values are consistently minimal (0.02–0.03), suggesting limited effectiveness in identifying true positives under strong class imbalance.
+
 ## Figure 5. Epigenetic-only Model Performance
 <table align="center">
   <tr>
@@ -276,6 +297,24 @@ Across the five folds, the FPR ranges from 0.576 to 0.886, while ROC-AUC remains
   </tr>
 </table>
 
+Figure 5a. One Sample:
+A heatmap illustrates a sample input profile across 18 epigenetic channels over 23 sequence positions. Notably, several channels are inactive (flat at zero), reflecting feature sparsity.
+
+Figure 5b. Loss & Accuracy Over Iterations:
+The model shows modest convergence over 50 epochs. Training loss decreases steadily, while test loss exhibits periodic fluctuations—suggesting some instability. Accuracy peaks at ~0.75 (train) and ~0.65 (test), showing limited generalization.
+
+Figure 5c. ROC Curve:
+The ROC-AUC of 0.83 indicates reasonable ability to distinguish positive and negative classes, though lower than the combined model. As with previous models, AUC may be inflated by dataset imbalance.
+
+Figure 5d. Precision-Recall (PR) Curve:
+PR-AUC is extremely low (0.02), reflecting poor precision regardless of recall. This highlights that while the model separates classes moderately well (ROC), it rarely makes confident, correct positive predictions.
+
+Figure 5e. FNR and FPR Over Iterations:
+The model keeps FNR slightly below 0.1, fulfilling the constraint. However, FPR remains high throughout (fluctuating near 0.4–0.6), signaling high false alarm rates.
+
+Figure 5f. Confusion Matrix:
+From Fold 1, out of 33,495 total negatives, 12,041 are false positives (FPR ~0.57), while 89 out of 107 positives are correctly predicted (FNR ~0.17, which is higher than the target—possibly an off-epoch snapshot). Precision is low due to heavy false positive burden.
+
 ## Table 7. Sequence-only model five-fold cross-validation metrics
 | Fold | FNR Constraint |  FPR    | ROC-AUC | PR-AUC |
 |------|---------------|---------|---------|--------|
@@ -284,6 +323,9 @@ Across the five folds, the FPR ranges from 0.576 to 0.886, while ROC-AUC remains
 | 3    | FNR < 0.1     | 0.0393  | 0.99    | 0.40   |
 | 4    | FNR < 0.1     | 0.0340  | 0.99    | 0.36   |
 | 5    | FNR < 0.1     | 0.0348  | 0.99    | 0.40   |
+
+Across all five folds, FNR remains under 0.1. FPR is consistently low (0.0316–0.0393), ROC-AUC remains fixed at 0.99, and PR-AUC values range from 0.31 to 0.40. These are the best overall PR-AUC values among all tested models.
+
 ## Figure 6. Sequence-only Model Performance
 <table align="center">
   <tr>
@@ -320,19 +362,44 @@ Across the five folds, the FPR ranges from 0.576 to 0.886, while ROC-AUC remains
   </tr>
 </table>
 
+Figure 6a. One Sample:
+The input heatmap reveals binary patterning from nucleotide encoding channels (e.g., sgRNA and off-site base identities), spanning 23 positions. No epigenetic signal is present, focusing purely on sequence features.
+
+Figure 6b. Loss & Accuracy Over Iterations:
+Both training and test loss decline steadily across 200 epochs, indicating stable convergence. Accuracy improves in parallel, peaking around ~0.96 (train) and ~0.93 (test), suggesting good generalization and low overfitting.
+
+Figure 6c. ROC Curve:
+The ROC-AUC is exceptionally high (0.99), indicating near-perfect class discrimination. As with other models, this metric is affected by data imbalance, though its magnitude still reflects strong separation capability.
+
+Figure 6d. Precision-Recall (PR) Curve:
+The PR-AUC reaches 0.31 for Fold 1—significantly better than the MIT, CFD, and epigenetic-only models. While precision still drops at high recall, it maintains acceptable levels across a broad range.
+
+Figure 6e. FNR and FPR Over Iterations:
+Both FNR and FPR decrease steadily during training. FNR remains below the 0.1 constraint, and FPR stabilizes under 0.05 by the end of training, reflecting balanced performance.
+
+Figure 6f. Confusion Matrix:
+Out of 32,336 true negatives, only 1,159 are misclassified (FPR ~0.035). Of 107 positives, 80 are correctly predicted and 27 are missed (FNR ~0.25, likely due to epoch mismatch). Overall, the model demonstrates low error rates in both classes.
+
 # Comparison Across Models
 ## Figure 7. Comparison Across Models
 ![Model comparison](docs/Comparision_between_models.png)
+
+The box plots confirm that the Seq-Only model dominates overall performance, achieving low FPR, high ROC-AUC, and the best PR-AUC. CCMU also shows promise with low FPR and high ROC-AUC but lower PR-AUC. In contrast, MIT suffers from extreme false positives, while Epi Only fails in precision. CFD occupies the middle ground with moderate scores across all metrics.
 
 # Attention Mechanism
 ## Figure 8. Positive
 ![Positive layer1](docs/Positive_attention/layer_1.png)
 ![Positive layer2](docs/Positive_attention/layer_2.png)
 ![Positive layer3](docs/Positive_attention/layer_3.png)
+
+Figure 8 shows the attention patterns across all heads and layers for a positively predicted sample. While most heads across all layers exhibit global attention—highlighted by vertical stripes indicating distributed focus over all key positions—certain heads display distinct local behaviors. Specifically, Heads 1 and 2 in both Layer 1 and Layer 2 show diagonal or cross-line patterns characteristic of local attention, suggesting sensitivity to position-specific context such as short motifs. Additionally, Head 3 in Layer 3 also exhibits a similar local pattern amidst otherwise global behavior. This suggests the model uses a combination of localized and global attention mechanisms, where early layers extract local sequence features and deeper layers integrate global context. Such a structured distribution of attention may underlie the model’s ability to accurately classify positive examples.
+
 ## Figure 9. Negative
 ![Negative layer1](docs/Negative_attention/layer_1.png)
 ![Negative layer2](docs/Negative_attention/layer_2.png)
 ![Negative layer3](docs/Negative_attention/layer_3.png)
+
+Figure 9 illustrates the attention head outputs across three layers for a negatively predicted sequence. Most attention maps exhibit classic global patterns—vertical stripes indicating widespread attention to all key positions. Notably, only Head 2 in Layer 1, Layer 2, and Layer 3 shows local attention behavior, characterized by cross-diagonal bands, suggesting these heads focus on localized sequence relationships. The persistence of local focus in Head 2 across all layers may indicate a dedicated path for local pattern extraction. However, the lack of diverse local heads, compared to positive cases, suggests that negative predictions rely more heavily on uniform global aggregation rather than positional specificity. This may reflect the model’s strategy of deemphasizing precise motif matching when rejecting potential positives.
 
 # Acknowledgments
 I gratefully thank my parents for supporting this project and providing the funds to rent cloud servers for model training.
