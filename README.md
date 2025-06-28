@@ -87,7 +87,9 @@ Follow these steps to reproduce the example results:
 <p align="center">
   <img src="docs/Model_architecture.png" alt="model architecture"/>
 </p>
-
+Schematic of the model architecture. The input tensor [𝑁,18,23]
+[N,18,23] is linearly embedded into a 256-dimensional space, followed by positional encoding and layer normalization. The processed sequence passes through three stacked transformer encoder layers, each consisting of multi-head self-attention, add & norm, and a feed-forward network (256→512→256). The output is globally pooled across the sequence dimension, then passed through a linear layer and sigmoid activation to produce the final prediction.
+This design enables the model to capture contextual dependencies within sequences and output a probability score for each sample.
 # Benchmark on MIT and CFD Datasets
 ## Table 3. MIT Algorithm Metrics
 | Fold | FNR Constraint | FPR    | ROC-AUC | PR-AUC |
@@ -97,7 +99,7 @@ Follow these steps to reproduce the example results:
 | 3    | FNR=0.1       | 1.0000 | 0.672   | 0.100  |
 | 4    | FNR=0.1       | 1.0000 | 0.707   | 0.128  |
 | 5    | FNR=0.1       | 0.5150 | 0.704   | 0.106  |
-## Figure 2. MIT: FNR and FPR vs. Cutoff
+## Figure 2. MIT Algorithm Metrics
 <table align="center">
   <tr>
     <td align="center">
@@ -129,7 +131,7 @@ Follow these steps to reproduce the example results:
 | 3    | FNR=0.1       | 0.886  | 0.794   | 0.279  |
 | 4    | FNR=0.1       | 0.590  | 0.832   | 0.242  |
 | 5    | FNR=0.1       | 0.589  | 0.826   | 0.270  |
-## Figure 3. CFD: FNR and FPR vs. Cutoff
+## Figure 3. CFD algorithm metrics
 <table align="center">
   <tr>
     <td align="center">
