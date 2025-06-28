@@ -99,6 +99,9 @@ This design enables the model to capture contextual dependencies within sequence
 | 3    | FNR=0.1       | 1.0000 | 0.672   | 0.100  |
 | 4    | FNR=0.1       | 1.0000 | 0.707   | 0.128  |
 | 5    | FNR=0.1       | 0.5150 | 0.704   | 0.106  |
+
+Across the five folds, the FNR constraint of 0.1 leads to variable but generally high FPRs (ranging from 0.512 to 1.000), with moderate ROC-AUC values (0.672 to 0.720), and consistently low PR-AUCs (0.100 to 0.128).
+
 ## Figure 2. MIT Algorithm Metrics
 <table align="center">
   <tr>
@@ -123,6 +126,18 @@ This design enables the model to capture contextual dependencies within sequence
   </tr>
 </table>
 
+Figure 2a. FNR and FPR vs. Score Cutoff:
+This plot shows how the False Negative Rate (FNR) and False Positive Rate (FPR) change with respect to varying score thresholds. Despite the FNR being fixed at 0.1, the FPR remains extremely high (~1.0) across most thresholds, indicating substantial misclassification of negative instances.
+
+Figure 2b. ROC Curve:
+The Receiver Operating Characteristic (ROC) curve shows moderate performance with an Area Under the Curve (AUC) of 0.681 for Fold 1. However, this relatively high AUC is misleading due to the extremely imbalanced dataset, which inflates performance metrics that depend on true negatives.
+
+Figure 2c. Precision-Recall (PR) Curve:
+The PR curve shows very low precision at almost all recall levels, with an AUC of only 0.11. This reflects a high rate of false positives when attempting to identify true positives, consistent with the elevated FPR.
+
+Figure 2d. Confusion Matrix:
+The confusion matrix further illustrates the skewed predictions. All 33,495 negative samples were misclassified as positive (false positives), while only 106 positive samples were correctly predicted. No true negatives were identified, underscoring the extremely poor specificity.
+
 ## Table 4. CFD algorithm metrics
 | Fold | FNR Constraint | FPR    | ROC-AUC | PR-AUC |
 |------|---------------|--------|---------|--------|
@@ -131,6 +146,19 @@ This design enables the model to capture contextual dependencies within sequence
 | 3    | FNR=0.1       | 0.886  | 0.794   | 0.279  |
 | 4    | FNR=0.1       | 0.590  | 0.832   | 0.242  |
 | 5    | FNR=0.1       | 0.589  | 0.826   | 0.270  |
+
+Figure 3a. FNR and FPR vs. Score Cutoff:
+The FNR sharply drops to the target 0.1 level as the score threshold increases, while the False Positive Rate (FPR) rises quickly and saturates around 0.72. This trade-off highlights the cost of meeting the FNR constraint—many negative samples are incorrectly flagged as positives.
+
+Figure 3b. ROC Curve:
+The ROC curve for Fold 1 yields an AUC of 0.825, suggesting strong discriminative ability. However, the high ROC-AUC may be influenced by the highly imbalanced dataset, where true negatives dominate the sample space.
+
+Figure 3c. Precision-Recall (PR) Curve:
+The PR curve shows better performance than the MIT algorithm, with a PR-AUC of 0.23. Still, precision decreases substantially as recall increases, showing that many predicted positives are false.
+
+Figure 3d. Confusion Matrix:
+Of 33,495 total negatives, 24,128 were misclassified (false positives), and only 9,367 were correctly identified. Among 107 true positives, 96 were correctly predicted. This shows a marked improvement in both recall and precision relative to the MIT model, but with considerable false positives remaining.
+
 ## Figure 3. CFD algorithm metrics
 <table align="center">
   <tr>
@@ -155,6 +183,8 @@ This design enables the model to capture contextual dependencies within sequence
   </tr>
 </table>
 
+Across the five folds, the FPR ranges from 0.576 to 0.886, while ROC-AUC remains high (0.794 to 0.832). PR-AUC ranges from 0.203 to 0.279, consistently outperforming MIT. The model satisfies the FNR constraint while offering improved—but still imperfect—balance between precision and recall.
+
 ## Table 5. Mixed model five-fold cross-validation metrics
 | Fold | FNR Constraint |  FPR    | ROC-AUC | PR-AUC |
 |------|---------------|---------|---------|--------|
@@ -163,6 +193,9 @@ This design enables the model to capture contextual dependencies within sequence
 | 3    | FNR < 0.1     | 0.0553  | 0.97    | 0.11   |
 | 4    | FNR < 0.1     | 0.0742  | 0.96    | 0.09   |
 | 5    | FNR < 0.1     | 0.1446  | 0.97    | 0.13   |
+
+
+
 ## Figure 4. Combined Model Performance
 <table align="center">
   <tr>
